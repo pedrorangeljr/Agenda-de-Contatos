@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.conteiner-header {
+
+    background-color: #292b2c;
+    height: 70px;
+}
+
+.conteiner-header h2 {
+
+    color:#fff;
+    padding-top: 20px;
+    padding-left: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.adicionar-contatos {
+
+    width: 300px;
+    float: right;
+    margin-right: 150px;
+    margin-top: -20px;
+    text-align: center;
+   
+}
+
+.adicionar-contatos  a {
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.formulario h1 {
+
+    text-align: center;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.form-contato {
+
+    margin-top: 50px;
+    margin-left: 510px;
+    padding: auto;
+    width: 400px;
+    border-radius: 5px;
+    
+   
+}
+
+.form-contato label {
+
+   margin-left: 30px;
+   margin-top: 20px;
+   display: block;
+   text-transform: uppercase;
+   display: block;
+}
+
+.form-contato input {
+
+    width: 300px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    
+} 
+
+.form-contato input[type='submit'] {
+
+    width: 140px;
+    height: 50px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+    background-color: #0275d8;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    color: #fff;
+}
+
+h1 {
+
+    padding-top: 50px;
+    padding-left: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.container-tabela{
+
+    justify-content: center;
+    white-space: 300px;
+    margin-top: 130px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.table {
+
+    border-collapse: collapse;
+    width: 60%;  
+    text-align: center;
+}
+
+
+th, td {
+
+    border: none;
+    padding: 25px;
+    text-align: center;
+}
+
+
+.btn-vizualizar  {
+
+    background-color: #5cb85c;
+    border: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: medium;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-vizualizar a {
+	color: #fff;
+	background-color:  #5cb85c;
+	text-decoration: none;
+}
+
+.btn-editar  {
+
+    background-color: #f0ad4e;
+    border: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: medium;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-editar a {
+	color: #fff;
+	background-color: #f0ad4e;
+	text-decoration: none;
+}
+
+.btn-excluir {
+
+    background-color: #d9534f;
+    border: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: medium;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-excluir a {
+	color: #fff;
+	background-color: #d9534f;
+	text-decoration: none;
+}
+
+
+h1 {
+     
+    margin-top: 40px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}  
+
+.container-login {
+
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -90%);
+   max-width: 350px;
+   width:100%;
+   background: #fff;
+   padding: 25px;
+   border-radius: 5px;
+   
+}
+
+.container-login h1 {
+
+   text-align: center;
+   margin-bottom: 20px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+}
+
+.login input {
+
+   margin-bottom: 15px;
+   width: 100%;
+   border: 1px solid #e0e0e0;
+   padding: 10px;
+}
+.login .btn {
+
+   border: 0;
+   margin-top: 15px;
+   padding: 10px;
+   width: 105%;
+   background:  #292b2c;
+   color: white;
+   letter-spacing: 5px;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 20px;
+}
