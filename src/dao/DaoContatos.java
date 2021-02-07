@@ -78,5 +78,32 @@ public class DaoContatos {
 		
 		return listar;
 	}
+	
+	/*Medoto excluir*/
+	
+	public void deletar(String nome) {
+		
+		try {
+			
+		String sql = "delete from contatos where nome = '" + nome + "'";
+		PreparedStatement delete = connection.prepareStatement(sql);
+		delete.execute();
+		
+		connection.commit();
+		
+		}catch(Exception e) {
+			
+			try {
+				
+				connection.rollback();
+				
+			} catch (SQLException e1) {
+				
+				e1.printStackTrace();
+			}
+			
+			e.printStackTrace();
+		}
+	}
 
 }

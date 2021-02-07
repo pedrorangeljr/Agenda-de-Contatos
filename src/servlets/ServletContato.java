@@ -29,16 +29,35 @@ public class ServletContato extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		try {
+			
+			String acao = request.getParameter("acao");
+			String contato = request.getParameter("contato");
+			
+			if(acao.equalsIgnoreCase("delete")) { // delete
+				
+				daoContatos.deletar(contato);
+				
+				RequestDispatcher view = request.getRequestDispatcher("principal.jsp");
+				request.setAttribute("contatos", daoContatos.listar());
+				view.forward(request, response);
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 		String nome = request.getParameter("nome");
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		
 		BeanContatos contatos = new BeanContatos();
+		
 		
 		contatos.setNome(nome);
 		contatos.setTelefone(telefone);

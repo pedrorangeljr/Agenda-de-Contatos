@@ -30,7 +30,6 @@ public class SingleConnection {
 				Class.forName("com.mysql.jdbc.Driver");
 				connection= DriverManager.getConnection(url, user, password);
 				connection.setAutoCommit(false);
-				System.out.println("Conectou com banco");
 			}
 			
 			

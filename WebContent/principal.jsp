@@ -30,13 +30,12 @@
        <tr>
          <c:forEach items="${contatos }" var="contato">
          
-           <td>1</td>
+           <td></td>
            <td><c:out value="${contato.nome }"></c:out></td>
            <td><c:out value="${contato.telefone }"></c:out></td>
            <td><c:out value="${contato.email }"></c:out></td>
-           <td><button class="btn-vizualizar"><a href="">Visualizar</a></button></td>
            <td><button class="btn-editar"><a href="">Editar</a></button></td>
-           <td><button class="btn-excluir"><a href="">Excluir</a></button></td>
+           <td><button class="btn-excluir"><a href="cadastroContatos?acao=delete&contato=${contato.nome }">Excluir</a></button></td>
            
        </tr>
        </c:forEach>
