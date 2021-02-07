@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,7 @@ public class ServletContato extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		String nome = request.getParameter("nome");
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
@@ -43,6 +45,18 @@ public class ServletContato extends HttpServlet {
 		contatos.setEmail(email);
 		
 		daoContatos.salvar(contatos);
+		
+		try {
+			
+			RequestDispatcher view = request.getRequestDispatcher("principal.jsp");
+			request.setAttribute("contatos", daoContatos.listar());
+			view.forward(request, response);
+			
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 	}
 
 }

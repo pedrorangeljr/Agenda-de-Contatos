@@ -2,7 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import bean.BeanContatos;
 
@@ -50,4 +53,30 @@ public class DaoContatos {
 		
 		
 	}
+	
+	/* Metodo Listar Contatos*/
+	
+	public List<BeanContatos> listar() throws Exception{
+		
+		
+		List<BeanContatos> listar = new ArrayList<BeanContatos>();
+		
+		String sql = "select * from contatos";
+		PreparedStatement select = connection.prepareStatement(sql);
+		ResultSet resultSet = select.executeQuery();
+		
+		while(resultSet.next()) {
+			
+			BeanContatos beanContatos = new BeanContatos();
+			
+			beanContatos.setNome(resultSet.getString("nome"));
+			beanContatos.setTelefone(resultSet.getString("telefone"));
+			beanContatos.setEmail(resultSet.getString("email"));
+			
+			listar.add(beanContatos);
+		}
+		
+		return listar;
+	}
+
 }

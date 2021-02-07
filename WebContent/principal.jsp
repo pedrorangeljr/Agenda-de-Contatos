@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,15 +28,18 @@
            <td>AÇÕES</td>
        </tr>
        <tr>
+         <c:forEach items="${contatos }" var="contato">
+         
            <td>1</td>
-           <td>pedro</td>
-           <td>211111</td>
-           <td>pedro@gmail.com</td>
+           <td><c:out value="${contato.nome }"></c:out></td>
+           <td><c:out value="${contato.telefone }"></c:out></td>
+           <td><c:out value="${contato.email }"></c:out></td>
            <td><button class="btn-vizualizar"><a href="">Visualizar</a></button></td>
            <td><button class="btn-editar"><a href="">Editar</a></button></td>
            <td><button class="btn-excluir"><a href="">Excluir</a></button></td>
            
        </tr>
+       </c:forEach>
       </table>
   </div>
   
