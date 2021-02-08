@@ -43,6 +43,14 @@ public class ServletContato extends HttpServlet {
 				request.setAttribute("contatos", daoContatos.listar());
 				view.forward(request, response);
 			}
+			else if(acao.equalsIgnoreCase("editar")) { // editar
+				
+                BeanContatos beanContatos = daoContatos.consultar(contato);
+                
+                RequestDispatcher view = request.getRequestDispatcher("contatos.jsp");
+				request.setAttribute("contatos", beanContatos);
+				view.forward(request, response);
+			}
 			
 		} catch (Exception e) {
 			
@@ -52,18 +60,27 @@ public class ServletContato extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String id = request.getParameter("id");
 		String nome = request.getParameter("nome");
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		
 		BeanContatos contatos = new BeanContatos();
 		
-		
+		contatos.setId(!id.isEmpty() ? Long.parseLong(id) : 0);
 		contatos.setNome(nome);
 		contatos.setTelefone(telefone);
 		contatos.setEmail(email);
 		
-		daoContatos.salvar(contatos);
+		if(id == null || id.isEmpty()) {
+			
+			daoContatos.salvar(contatos);
+		}
+		else {
+			
+			daoContatos.atualizar(contatos);
+		}
+		
 		
 		try {
 			
