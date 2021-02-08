@@ -48,7 +48,7 @@ public class ServletContato extends HttpServlet {
                 BeanContatos beanContatos = daoContatos.consultar(contato);
                 
                 RequestDispatcher view = request.getRequestDispatcher("contatos.jsp");
-				request.setAttribute("contatos", beanContatos);
+				request.setAttribute("contato", beanContatos);
 				view.forward(request, response);
 			}
 			
