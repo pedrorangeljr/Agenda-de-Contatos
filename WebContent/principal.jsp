@@ -31,7 +31,7 @@
        <tr>
          <c:forEach items="${contatos }" var="contato">
          
-           <td></td>
+           <td><c:out value="${contato.id }"></c:out></td>
            <td><c:out value="${contato.nome }"></c:out></td>
            <td><c:out value="${contato.telefone }"></c:out></td>
            <td><c:out value="${contato.email }"></c:out></td>

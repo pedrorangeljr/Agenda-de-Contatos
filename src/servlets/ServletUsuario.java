@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoContatos;
 import dao.DaoLogin;
 
 /**
@@ -19,6 +20,7 @@ public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	private DaoLogin daoLogin = new DaoLogin();
+	private DaoContatos daoContatos = new DaoContatos();
     
     public ServletUsuario() {
         super();
@@ -41,8 +43,10 @@ public class ServletUsuario extends HttpServlet {
 			
 			if(daoLogin.validarLoginSenha(login, senha)) {
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
-				dispatcher.forward(request, response);
+				RequestDispatcher view = request.getRequestDispatcher("principal.jsp");
+				request.setAttribute("contatos", daoContatos.listar());
+				view.forward(request, response);
+				
 			}
 			
 			else {
