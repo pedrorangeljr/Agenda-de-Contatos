@@ -36,7 +36,7 @@
            <td><c:out value="${contato.telefone }"></c:out></td>
            <td><c:out value="${contato.email }"></c:out></td>
            <td><button class="btn-editar"><a href="cadastroContatos?acao=editar&contato=${contato.nome }">Editar</a></button></td>
-           <td><button class="btn-excluir"><a href="cadastroContatos?acao=delete&contato=${contato.nome }">Excluir</a></button></td>
+           <td><button class="btn-excluir"><a href="cadastroContatos?acao=delete&contato=${contato.nome }" onclick="return confirm('Confirmar a exclusão?');">Excluir</a></button></td>
            
        </tr>
        </c:forEach>

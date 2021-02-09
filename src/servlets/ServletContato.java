@@ -72,18 +72,20 @@ public class ServletContato extends HttpServlet {
 		contatos.setTelefone(telefone);
 		contatos.setEmail(email);
 		
+			
+		
 		if(id == null || id.isEmpty()) {
 			
 			daoContatos.salvar(contatos);
 		}
-		else {
+		else{
 			
 			daoContatos.atualizar(contatos);
 		}
-		
-		
-		try {
 			
+		try {
+			/* Lista os Usuários na mesma tela */
+		
 			RequestDispatcher view = request.getRequestDispatcher("principal.jsp");
 			request.setAttribute("contatos", daoContatos.listar());
 			view.forward(request, response);
