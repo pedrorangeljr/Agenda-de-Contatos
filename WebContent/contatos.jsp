@@ -11,7 +11,8 @@
 <body>
      	<div class="formulario">
 		<h1>Adicionar Contatos</h1>
-		<form action="cadastroContatos" method="post" class="form-contato" id="formUser">
+		<form action="cadastroContatos" method="post" class="form-contato" id="formUser"
+		 onsubmit="return validarCampos() ? true : false">
 		
 			<label>Nome</label> <input type="text" id="nome"  name="nome" value="${contato.nome }"><br>
 			<label>Número</label> <input type="text" id="telefone"  name="telefone" value="${contato.telefone }"><br>
@@ -21,5 +22,30 @@
 			
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+	
+	       function validarCampos() {
+	    	   
+	    	   if(document.getElementById("nome").value == '') {
+	    		   
+	    		   alert("Informe o nome");
+	    		   break;
+	    	   }
+	    	   else if(document.getElementById("telefone").value == '') {
+	    		   
+	    		   alert("Informe o Telefone");
+	    		   break;
+	    	   }
+	    	   else if(document.getElementById("email").value == '') {
+	    		   
+	    		   alert("Informe o email");
+	    		   break;
+	    	   }
+	    	   
+	    	   return true;
+	       }
+	 
+	</script>
 </body>
 </html>
