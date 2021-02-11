@@ -60,6 +60,23 @@ public class ServletContato extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String acao = request.getParameter("acao");
+		
+		if(acao != null && acao.equalsIgnoreCase("reset")) {
+			
+			try {
+				
+				RequestDispatcher view = request.getRequestDispatcher("principal.jsp");
+				request.setAttribute("contatos", daoContatos.listar());
+				view.forward(request, response);
+				
+			}catch(Exception e) {
+				
+				e.printStackTrace();
+			}
+			
+		}
+		
 		String id = request.getParameter("id");
 		String nome = request.getParameter("nome");
 		String telefone = request.getParameter("telefone");
@@ -78,6 +95,7 @@ public class ServletContato extends HttpServlet {
 			
 			daoContatos.salvar(contatos);
 		}
+		
 		else{
 			
 			daoContatos.atualizar(contatos);
